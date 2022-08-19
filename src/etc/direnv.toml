@@ -6,7 +6,7 @@
 # long time to load all nix dependencies
 warn_timeout = "30m"
 
-bash_path = "/bin/bash"
+bash_path = "/bin/zsh"
 
 # whitelist all paths, since we are running in container
 [whitelist]

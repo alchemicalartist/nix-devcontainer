@@ -1,0 +1,26 @@
+if [ -f /etc/profile.d/00-restore-secrets.sh ]; then . /etc/profile.d/00-restore-secrets.sh; fi
+# /etc/zsh/zlogin: system-wide .zlogin file for zsh(1).
+#
+# This file is sourced only for login shells. It
+# should contain commands that should be executed only
+# in login shells. It should be used to set the terminal
+# type and run a series of external commands (fortune,
+# msgs, from, etc.)
+#
+# Global Order: zshenv, zprofile, zshrc, zlogin
+
+WORKING_DIRECTORY="/workspaces/$(cat /workspaces/.codespaces/shared/environment-variables.json | jq .RepoName)"
+
+if [ -z "$SHELL_LOGGED_IN" ] && [ ! "$TERM_PROGRAM" = "vscode" ]; then
+  cd "$WORKING_DIRECTORY"
+  export SHELL_LOGGED_IN=true
+fi
+
+while read line
+do
+    key=$(echo $line | sed "s/=.*//")
+    value=$(echo $line | sed "s/$key=//1")
+    decodedValue=$(echo $value | base64 -d)
+    export $key="$decodedValue"
+done < /workspaces/.codespaces/shared/.env-secrets
+

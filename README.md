@@ -1,6 +1,6 @@
 # nix-devcontainer
 
-![workflow status](https://github.com/xtruder/nix-devcontainer/actions//workflows/ci.yml/badge.svg)
+![workflow status](https://github.com/alchemicalartist/nix-devcontainer/actions/workflows/ci.yml/badge.svg)
 
 
 ## Summary
@@ -9,14 +9,14 @@
 
 | Metadata                    | Value                                                                         |
 | --------------------------- | ----------------------------------------------------------------------------- |
-| *Image*                     | [ghcr.io/xtruder/nix-devcontainer](https://github.com/xtruder/nix-devcontainer/pkgs/container/nix-devcontainer) |
-| *Image tags*                | v1,latest,edge                                                                |
+| *Image*                     | [ghcr.io/alchemicalartist/nix-devcontainer](https://github.com/alchemicalartist/nix-devcontainer/pkgs/container/nix-devcontainer) |
+| *Image tags*                | v1.5,latest,edge                                                                |
 | *Definition type*           | standalone or Docker Compose                                                  |
 | *Works in Codespaces*       | Yes                                                                           |
 | *Container host OS support* | Linux, macOS, Windows                                                         |
 | *Languages, platforms*      | All languages that nix supports                                               |
-| *Contributors*              | [@offlinehacker](github.com/offlinehacker), [@Rizary](github.com/rizary)      |
-| *Maintainer*                | Jaka Hudoklin <jaka@x-truder.net> [@offlinehacker](github.com/offlinehacker)  |
+| *Contributors*              | [@xtruder](github.com/xtruder),[@offlinehacker](github.com/offlinehacker), [@Rizary](github.com/rizary)      |
+| *Maintainer*                | Chris Denton <chris@intuitivealchemy.studio> [@alchemicalartist](github.com/alchemicalartist)  |
 
 ## Description
 
@@ -25,7 +25,7 @@ that uses debian image for a base system and [nix package manager](https://nixos
 for management of your development environments. Combination
 of a good base image and a best in class package manager, gives
 you versatile, reproduible and deterministic development environment
-that you can use everywhere.
+that you can use everywhere. This is a fork of [xtruder/nix-devcontainer](github.com/xtruder/nix-devcontainer)
 
 ### Components
 

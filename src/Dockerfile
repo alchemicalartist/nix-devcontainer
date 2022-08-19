@@ -6,7 +6,7 @@ RUN go build -o /ext-preloader main.go
 
 FROM debian:stable-slim
 
-LABEL maintainer="X-Truder <dev@x-truder.net>"
+LABEL maintainer="Chris Denton <chris@intuitivealchemy.studio>"
 
 # change build shell to /bin/bash, so env will be set correctly
 SHELL ["/bin/bash", "-c"]
@@ -19,6 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 RUN apt update -y
 RUN apt -y install --no-install-recommends \
     sudo \
+    zsh \
     ca-certificates \
     psmisc \
     procps \
@@ -40,7 +41,7 @@ RUN apt -y install --no-install-recommends \
     man-db \
     bash-completion
 
-# create at least locae for en_US.UTF-8
+# create at least locale for en_US.UTF-8
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && locale-gen
 
 # create non-root user and group and add it sudoers
@@ -48,7 +49,7 @@ ARG USERNAME=code
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 RUN groupadd --gid ${USER_GID} ${USERNAME} && \
-    useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} -s /bin/bash && \
+    useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} -s /bin/zsh && \
     echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/devcontainer && \
     chmod 0440 /etc/sudoers.d/devcontainer
 
@@ -64,6 +65,9 @@ COPY etc/devcontainer.sh /etc/profile.d/devcontainer.sh
 
 # install bash config
 COPY etc/bash.bashrc /etc/bash.bashrc
+COPY etc/zsh/zshrc /etc/zsh/zshrc
+COPY etc/zsh/zlogin /etc/zsh/zlogin
+COPY etc/zsh/newuser.zshrc.recommended /etc/zsh/newuser.zshrc.recommended
 
 # set env for non interactve shell to load nix
 COPY etc/envrc /etc/envrc

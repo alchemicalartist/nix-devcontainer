@@ -41,7 +41,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-            xtruder/nix-devcontainer
+            alchemicalartist/nix-devcontainer
             ghcr.io/${{ github.repository }} 
           tags: |
             type=semver,pattern=v{{version}}
