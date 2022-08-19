@@ -51,7 +51,7 @@ jobs:
         with:
           images: |
             alchemicalartist/nix-devcontainer
-            ghcr.io/${{ github.repository }}
+            ghcr.io/alchemicalartist/nix-devcontainer
           tags: |
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}
