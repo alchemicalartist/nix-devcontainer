@@ -60,12 +60,12 @@ that you can use everywhere. This is a fork of [xtruder/nix-devcontainer](github
 There are sevaral example templates you can use to quickly bootstrap your project:
 
 - [nix-devcontainer-golang](https://github.com/xtruder/nix-devcontainer-golang/)
-  
+
   Example project using `nix-devcontainer` for golang development, with docker-compose
   running docker-in-docker service for building docker images.
 
 - [nix-devcontainer-python-jupyter](https://github.com/xtruder/nix-devcontainer-python-jupyter/)
-  
+
   Example project using `nix-devcontainer` for python and jupyter notebooks,
   with python packages managed by nix.
 
@@ -115,7 +115,7 @@ Example `.devcontainer/devcontainer.json`:
 
 ```jsonc
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
-// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
+// https://github.com/microsoft/vscode-dev-containers/tree/main/containers/docker-existing-dockerfile
 {
   "name": "devcontainer-project",
   "dockerFile": "Dockerfile",
@@ -167,7 +167,7 @@ Example `.devcontainer/devcontainer.json`:
 Example `.devcontainer/Dockerfile`:
 
 ```dockerfile
-FROM ghcr.io/xtruder/nix-devcontainer:v1
+FROM ghcr.io/alchemicalartist/nix-devcontainer:v1
 ```
 
 **Dockerfile is needed for build triggers to run.** Build triggers will change
@@ -198,13 +198,13 @@ Example `.devcontainer/devcontainer.json`:
 
 ```jsonc
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
-// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
+// https://github.com/microsoft/vscode-dev-containers/tree/main/containers/docker-existing-dockerfile
 {
   "name": "devcontainer-project",
   "dockerComposeFile": "docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/workspace",
-  
+
   "userEnvProbe": "loginShell",
   "updateRemoteUserUID": false,
 
@@ -333,7 +333,7 @@ This will make sure your dev container and service containers are running in sam
 Caching nix store is as simple as adding named docker volume on `/nix`.
 
 ```dockerfile
-FROM ghcr.io/xtruder/nix-devcontainer:v1
+FROM ghcr.io/alchemicalartist/nix-devcontainer:v1
 VOLUME /nix
 ```
 
@@ -412,7 +412,7 @@ to mount `docker.sock` in devcontainer:
 
    ```Dockerfile
    ARG DOCKER_GID=966
-   RUN groupadd -g ${DOCKER_GID} docker && usermod -a -G docker ${USERNAME} 
+   RUN groupadd -g ${DOCKER_GID} docker && usermod -a -G docker ${USERNAME}
    ```
 
 **Be aware that exposing docker socket to your development environment is a security risk, as it
@@ -533,4 +533,4 @@ You should also check if image works with example templates.
 
 Copyright (c) X-Truder. All rights reserved.
 
-Licensed under the MIT License. See [LICENSE](https://github.com/xtruder/nix-devcontainer/blob/master/LICENSE).
+Licensed under the MIT License. See [LICENSE](https://github.com/alchemicalartist/nix-devcontainer/blob/main/LICENSE).

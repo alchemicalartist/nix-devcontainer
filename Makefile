@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	docker build -t alchemicalartist/nix-devcontainer:latest -f src/Dockerfile src
+	docker buildx build --platform linux/arm64,linux/amd64 --push --tag alchemicalartist/nix-devcontainer:latest --file src/Dockerfile src
 
 .PHONY: test
 test: build
