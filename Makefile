@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	docker build -t xtruder/nix-devcontainer:latest -f src/Dockerfile src
+	docker build -t alchemicalartist/nix-devcontainer:latest -f src/Dockerfile src
 
 .PHONY: test
 test: build

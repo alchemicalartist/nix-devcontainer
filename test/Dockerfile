@@ -1,4 +1,4 @@
-FROM xtruder/nix-devcontainer
+FROM alchemicalartist/nix-devcontainer
 
 VOLUME /nix
 
