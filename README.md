@@ -1,22 +1,22 @@
 # nix-devcontainer
 
-![workflow status](https://github.com/xtruder/nix-devcontainer/actions//workflows/ci.yml/badge.svg)
+![workflow status](https://github.com/alchemicalartist/nix-devcontainer/actions//workflows/ci.yml/badge.svg)
 
 
 ## Summary
 
-**Swiss army knife container for vscode development environments**
+**Swiss army knife container for vscode development environments (fork of [xtruder/nix-devcontainer](https://github.com/xtruder/nix-devcontainer))**
 
 | Metadata                    | Value                                                                         |
 | --------------------------- | ----------------------------------------------------------------------------- |
-| *Image*                     | [ghcr.io/xtruder/nix-devcontainer](https://github.com/xtruder/nix-devcontainer/pkgs/container/nix-devcontainer) |
-| *Image tags*                | v1,latest,edge                                                                |
+| *Image*                     | [ghcr.io/alchemicalartist/nix-devcontainer](https://github.com/alchemicalartist/nix-devcontainer/pkgs/container/nix-devcontainer) |
+| *Image tags*                | v1,latest                                                                     |
 | *Definition type*           | standalone or Docker Compose                                                  |
 | *Works in Codespaces*       | Yes                                                                           |
 | *Container host OS support* | Linux, macOS, Windows                                                         |
 | *Languages, platforms*      | All languages that nix supports                                               |
-| *Contributors*              | [@offlinehacker](github.com/offlinehacker), [@Rizary](github.com/rizary)      |
-| *Maintainer*                | Jaka Hudoklin <jaka@x-truder.net> [@offlinehacker](github.com/offlinehacker)  |
+| *Contributors*              | [@xtruder](github.com/xtruder), [@offlinehacker](github.com/offlinehacker), [@Rizary](github.com/rizary)      |
+| *Maintainer*                | Chris Denton [@alchemicalartist](github.com/alchemicalartist)  |
 
 ## Description
 
@@ -167,7 +167,7 @@ Example `.devcontainer/devcontainer.json`:
 Example `.devcontainer/Dockerfile`:
 
 ```dockerfile
-FROM ghcr.io/xtruder/nix-devcontainer:v1
+FROM ghcr.io/alchemicalartist/nix-devcontainer:latest
 ```
 
 **Dockerfile is needed for build triggers to run.** Build triggers will change
@@ -333,7 +333,7 @@ This will make sure your dev container and service containers are running in sam
 Caching nix store is as simple as adding named docker volume on `/nix`.
 
 ```dockerfile
-FROM ghcr.io/xtruder/nix-devcontainer:v1
+FROM ghcr.io/alchemicalartist/nix-devcontainer:latest
 VOLUME /nix
 ```
 
@@ -533,4 +533,4 @@ You should also check if image works with example templates.
 
 Copyright (c) X-Truder. All rights reserved.
 
-Licensed under the MIT License. See [LICENSE](https://github.com/xtruder/nix-devcontainer/blob/master/LICENSE).
+Licensed under the MIT License. See [LICENSE](https://github.com/alchemicalartist/nix-devcontainer/blob/main/LICENSE).

@@ -6,7 +6,7 @@ RUN go build -o /ext-preloader main.go
 
 FROM debian:stable-slim
 
-LABEL maintainer="X-Truder <dev@x-truder.net>"
+LABEL maintainer="Chris Denton <chris@intuitivealchemy.studio>"
 
 # change build shell to /bin/bash, so env will be set correctly
 SHELL ["/bin/bash", "-c"]

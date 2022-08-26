@@ -1,4 +1,4 @@
-FROM ghcr.io/xtruder/nix-devcontainer:v1
+FROM ghcr.io/alchemicalartist/nix-devcontainer:latest
 
 # cache /nix
 VOLUME /nix
